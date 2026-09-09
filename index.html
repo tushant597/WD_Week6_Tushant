@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="TaskFlow is a responsive task management website for organizing and tracking daily tasks.">
+
+    <title>TaskFlow - Task Management</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         Header
+    ========================== -->
+    <header class="site-header">
+
+        <div class="logo">
+            <a href="index.html">TaskFlow</a>
+        </div>
+
+        <nav class="main-nav" aria-label="Main navigation">
+            <ul>
+                <li>
+                    <a href="#dashboard">Dashboard</a>
+                </li>
+
+                <li>
+                    <a href="#tasks">Tasks</a>
+                </li>
+
+                <li>
+                    <a href="#add-task">Add Task</a>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         Main Content
+    ========================== -->
+    <main>
+
+        <!-- Hero / Dashboard Introduction -->
+        <section id="dashboard" class="dashboard-section">
+
+            <div class="dashboard-intro">
+                <p class="eyebrow">TASK MANAGEMENT</p>
+
+                <h1>Manage your tasks with TaskFlow</h1>
+
+                <p>
+                    Organize your work, track your progress, and stay
+                    productive with a simple task management dashboard.
+                </p>
+            </div>
+
+
+            <!-- =========================
+                 Statistics
+            ========================== -->
+            <section class="statistics" aria-label="Task statistics">
+
+                <article class="stat-card">
+                    <h2>Total Tasks</h2>
+                    <p id="total-tasks">0</p>
+                </article>
+
+                <article class="stat-card">
+                    <h2>Completed</h2>
+                    <p id="completed-tasks">0</p>
+                </article>
+
+                <article class="stat-card">
+                    <h2>Pending</h2>
+                    <p id="pending-tasks">0</p>
+                </article>
+
+                <article class="stat-card">
+                    <h2>High Priority</h2>
+                    <p id="high-priority-tasks">0</p>
+                </article>
+
+            </section>
+
+        </section>
+
+
+        <!-- =========================
+             Add Task
+        ========================== -->
+        <section id="add-task" class="add-task-section">
+
+            <div class="section-heading">
+                <p class="eyebrow">CREATE</p>
+                <h2>Add a New Task</h2>
+                <p>
+                    Add a task with a category, priority, and due date.
+                </p>
+            </div>
+
+
+            <form id="task-form" novalidate>
+
+                <!-- Task Title -->
+                <div class="form-group">
+
+                    <label for="task-title">
+                        Task Title
+                    </label>
+
+                    <input type="text" id="task-title" name="task-title" placeholder="Enter task title" required>
+
+                    <small id="task-title-error" class="error-message"></small>
+
+                </div>
+
+
+                <!-- Task Description -->
+                <div class="form-group">
+
+                    <label for="task-description">
+                        Description
+                    </label>
+
+                    <textarea id="task-description" name="task-description" rows="4"
+                        placeholder="Enter task description"></textarea>
+
+                </div>
+
+
+                <!-- Category -->
+                <div class="form-group">
+
+                    <label for="task-category">
+                        Category
+                    </label>
+
+                    <select id="task-category" name="task-category" required>
+                        <option value="">
+                            Select category
+                        </option>
+
+                        <option value="work">
+                            Work
+                        </option>
+
+                        <option value="study">
+                            Study
+                        </option>
+
+                        <option value="personal">
+                            Personal
+                        </option>
+
+                        <option value="other">
+                            Other
+                        </option>
+                    </select>
+
+                </div>
+
+
+                <!-- Priority -->
+                <fieldset class="form-group">
+
+                    <legend>Priority</legend>
+
+                    <label>
+                        <input type="radio" name="priority" value="low" checked>
+                        Low
+                    </label>
+
+                    <label>
+                        <input type="radio" name="priority" value="medium">
+                        Medium
+                    </label>
+
+                    <label>
+                        <input type="radio" name="priority" value="high">
+                        High
+                    </label>
+
+                </fieldset>
+
+
+                <!-- Due Date -->
+                <div class="form-group">
+
+                    <label for="task-date">
+                        Due Date
+                    </label>
+
+                    <input type="date" id="task-date" name="task-date" required>
+
+                </div>
+
+
+                <!-- Submit -->
+                <div class="form-actions">
+
+                    <button type="submit" id="submit-task-button">
+                        Add Task
+                    </button>
+
+                    <button type="reset" id="reset-task-button">
+                        Clear
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- =========================
+             Tasks
+        ========================== -->
+        <section id="tasks" class="tasks-section">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">YOUR WORK</p>
+
+                <h2>My Tasks</h2>
+
+                <p>
+                    Search, filter, and manage your tasks.
+                </p>
+
+            </div>
+
+
+            <!-- =========================
+                 Search & Filters
+            ========================== -->
+            <div class="task-controls">
+
+                <!-- Search -->
+                <div class="search-box">
+
+                    <label for="task-search">
+                        Search Tasks
+                    </label>
+
+                    <input type="search" id="task-search" placeholder="Search by title or description...">
+
+                </div>
+
+
+                <!-- Status Filter -->
+                <div class="filter-box">
+
+                    <label for="status-filter">
+                        Status
+                    </label>
+
+                    <select id="status-filter">
+
+                        <option value="all">
+                            All
+                        </option>
+
+                        <option value="pending">
+                            Pending
+                        </option>
+
+                        <option value="completed">
+                            Completed
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Category Filter -->
+                <div class="filter-box">
+
+                    <label for="category-filter">
+                        Category
+                    </label>
+
+                    <select id="category-filter">
+
+                        <option value="all">
+                            All Categories
+                        </option>
+
+                        <option value="work">
+                            Work
+                        </option>
+
+                        <option value="study">
+                            Study
+                        </option>
+
+                        <option value="personal">
+                            Personal
+                        </option>
+
+                        <option value="other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Priority Filter -->
+                <div class="filter-box">
+
+                    <label for="priority-filter">
+                        Priority
+                    </label>
+
+                    <select id="priority-filter">
+
+                        <option value="all">
+                            All Priorities
+                        </option>
+
+                        <option value="low">
+                            Low
+                        </option>
+
+                        <option value="medium">
+                            Medium
+                        </option>
+
+                        <option value="high">
+                            High
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 Task List
+            ========================== -->
+            <div id="task-list" class="task-list" aria-live="polite">
+
+                <!--
+                    JavaScript will dynamically
+                    create task cards here.
+                -->
+
+                <div id="empty-state" class="empty-state">
+                    <h3>No tasks yet</h3>
+
+                    <p>
+                        Add your first task using the form above.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         Footer
+    ========================== -->
+    <footer class="site-footer">
+
+        <p>
+            &copy; 2026 TaskFlow. Built with HTML, CSS and JavaScript.
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
+```
